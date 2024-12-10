@@ -1,0 +1,72 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: main
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/cyfronet-fid/eosc-search-service:
+      branch: development
+      repo: https://github.com/cyfronet-fid/eosc-search-service.git
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/cyfronet-fid/eosc-search-service git:
+        commands:
+        - /usr/bin/env sh .sqa/script.sleazy-grey-schnauzer.sh
+        container: qc.acc_flaky-zucchini-vole
+  QC.Doc:
+    repos:
+      github.com/cyfronet-fid/eosc-search-service find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.beady-auburn-angelfish.sh
+        container: qc.doc_lousy-magenta-moose
+      github.com/cyfronet-fid/eosc-search-service git:
+        commands:
+        - /usr/bin/env sh .sqa/script.randy-scarlet-barracuda.sh
+        container: qc.doc_bumpy-black-bear
+      github.com/cyfronet-fid/eosc-search-service markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.bluesy-bronze-rhinoceros.sh
+        container: qc.doc_thirsty-blue-javanese
+  QC.Lic:
+    repos:
+      github.com/cyfronet-fid/eosc-search-service licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.sleepy-heliotrope-pinscher.sh
+        container: qc.lic_shaggy-peach-tarsier
+  QC.Sec:
+    repos:
+      github.com/cyfronet-fid/eosc-search-service bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.seedy-violet-angora.sh
+        container: qc.sec_sickly-pumpkin-starfish
+  QC.Sty:
+    repos:
+      github.com/cyfronet-fid/eosc-search-service flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.sunny-xanthic-forest.sh
+        container: qc.sty_shaggy-denim-cuttlefish
+      github.com/cyfronet-fid/eosc-search-service hadolint:
+        commands:
+        - /usr/bin/env sh .sqa/script.surly-cerise-chimpanzee.sh
+        container: qc.sty_paltry-ruby-bonobo
+      github.com/cyfronet-fid/eosc-search-service jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.lanky-celadon-mau.sh
+        container: qc.sty_stuffy-cornflower-avocet
+  QC.Uni:
+    repos:
+      github.com/cyfronet-fid/eosc-search-service pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.scummy-periwinkle-retriever.sh
+        container: qc.uni_wiggy-magenta-okapi
+  QC.Ver:
+    repos:
+      github.com/cyfronet-fid/eosc-search-service get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.shabby-sangria-iguana.sh
+        container: qc.ver_slimy-amethyst-quetzal
+timeout: 5400
