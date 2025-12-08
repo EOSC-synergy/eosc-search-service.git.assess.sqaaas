@@ -5,7 +5,7 @@ config:
       branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     github.com/cyfronet-fid/eosc-search-service:
-      branch: development
+      branch: 1628-getting-golden-SQA-badge-v3
       repo: https://github.com/cyfronet-fid/eosc-search-service.git
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -15,58 +15,64 @@ sqa_criteria:
     repos:
       github.com/cyfronet-fid/eosc-search-service git:
         commands:
-        - /usr/bin/env sh .sqa/script.ugly-pumpkin-reindeer.sh
-        container: qc.acc_tasty-cardinal-fossa
+        - /usr/bin/env sh .sqa/script.cloudy-auburn-akbash.sh
+        container: qc.acc_ready-violet-seal
   QC.Doc:
     repos:
       github.com/cyfronet-fid/eosc-search-service find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.skinny-violet-bobcat.sh
-        container: qc.doc_slaphappy-scarlet-bonobo
+        - /usr/bin/env sh .sqa/script.skanky-pear-crocodile.sh
+        container: qc.doc_sickly-taupe-manatee
       github.com/cyfronet-fid/eosc-search-service git:
         commands:
-        - /usr/bin/env sh .sqa/script.snoopy-eggplant-booby.sh
-        container: qc.doc_stealthy-apricot-squirt
+        - /usr/bin/env sh .sqa/script.wheezy-turquoise-indri.sh
+        container: qc.doc_pasty-charcoal-liger
       github.com/cyfronet-fid/eosc-search-service markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.wheezy-beige-fousek.sh
-        container: qc.doc_slimy-cinnabar-tetra
+        - /usr/bin/env sh .sqa/script.gamy-ultramarine-buffalo.sh
+        container: qc.doc_boozy-chestnut-hornet
   QC.Lic:
     repos:
       github.com/cyfronet-fid/eosc-search-service licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.stuffy-turquoise-grouse.sh
-        container: qc.lic_beady-cornflower-warthog
+        - /usr/bin/env sh .sqa/script.hasty-purple-baboon.sh
+        container: qc.lic_slaphappy-silver-coral
+  QC.Met:
+    repos:
+      github.com/cyfronet-fid/eosc-search-service cff-converter-python:
+        commands:
+        - /usr/bin/env sh .sqa/script.snazzy-flax-badger.sh
+        container: qc.met_squirrely-grey-dragon
   QC.Sec:
     repos:
       github.com/cyfronet-fid/eosc-search-service bandit:
         commands:
-        - /usr/bin/env sh .sqa/script.zippy-white-havanese.sh
-        container: qc.sec_cheeky-salmon-dunker
+        - /usr/bin/env sh .sqa/script.cloudy-mauve-neanderthal.sh
+        container: qc.sec_cloudy-champagne-booby
   QC.Sty:
     repos:
       github.com/cyfronet-fid/eosc-search-service flake8:
         commands:
-        - /usr/bin/env sh .sqa/script.trippy-silver-liger.sh
-        container: qc.sty_zippy-sapphire-clam
+        - /usr/bin/env sh .sqa/script.snazzy-gamboge-peccary.sh
+        container: qc.sty_clammy-cinnabar-cougar
       github.com/cyfronet-fid/eosc-search-service hadolint:
         commands:
-        - /usr/bin/env sh .sqa/script.surly-chestnut-stoat.sh
-        container: qc.sty_pokey-turquoise-jellyfish
+        - /usr/bin/env sh .sqa/script.baggy-cinnamon-cuttlefish.sh
+        container: qc.sty_surly-jade-ladybird
       github.com/cyfronet-fid/eosc-search-service jsonlint:
         commands:
-        - /usr/bin/env sh .sqa/script.shaggy-burgundy-sloth.sh
-        container: qc.sty_breezy-olive-discus
+        - /usr/bin/env sh .sqa/script.dorky-cyan-chinchilla.sh
+        container: qc.sty_cranky-charcoal-rhinoceros
   QC.Uni:
     repos:
       github.com/cyfronet-fid/eosc-search-service pytest:
         commands:
-        - /usr/bin/env sh .sqa/script.droopy-charcoal-shrew.sh
-        container: qc.uni_scanty-rust-javanese
+        - /usr/bin/env sh .sqa/script.cloudy-seashell-ray.sh
+        container: qc.uni_bluesy-sepia-fossa
   QC.Ver:
     repos:
       github.com/cyfronet-fid/eosc-search-service get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.cloudy-viridian-woodpecker.sh
-        container: qc.ver_messy-smalt-toad
+        - /usr/bin/env sh .sqa/script.blurry-bistre-audemer.sh
+        container: qc.ver_sickly-lemon-crab
 timeout: 5400
